@@ -44,7 +44,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                 target="_blank"
                 className="text-base text-black opacity-50"
               >
-                Visit Product Page
+                Visit Product
               </Link>
             </div>
 
@@ -56,12 +56,13 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                   width={20}
                   height={20}
                 />
+
                 <p className="text-base font-semibold text-[#D46F77]">
-                  {product.reviewsCount || "100"}
+                  {product.reviewsCount}
                 </p>
               </div>
 
-              <div>
+              <div className="p-2 bg-white-200 rounded-10">
                 <Image
                   src="/assets/icons/bookmark.svg"
                   alt="bookmark"
@@ -70,7 +71,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                 />
               </div>
 
-              <div>
+              <div className="p-2 bg-white-200 rounded-10">
                 <Image
                   src="/assets/icons/share.svg"
                   alt="share"
@@ -80,6 +81,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               </div>
             </div>
           </div>
+
           <div className="product-info">
             <div className="flex flex-col gap-2">
               <p className="text-[34px] text-secondary font-bold">
@@ -112,17 +114,18 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                     height={16}
                   />
                   <p className="text-sm text-secondary font-semibold">
-                    {product.reviewsCount || "100"} Reviews
+                    {product.reviewsCount} Reviews
                   </p>
                 </div>
               </div>
 
               <p className="text-sm text-black opacity-50">
-                <span className="text-primary-green font-semibold">93%</span> of
-                buyers recommend this product
+                <span className="text-primary-green font-semibold">93% </span>{" "}
+                of buyers have recommeded this.
               </p>
             </div>
           </div>
+
           <div className="my-7 flex flex-col gap-5">
             <div className="flex gap-5 flex-wrap">
               <PriceInfoCard
@@ -131,25 +134,20 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                 value={`${product.currency} ${formatNumber(
                   product.currentPrice
                 )}`}
-                borderColor="b6dbff"
               />
-
               <PriceInfoCard
                 title="Average Price"
                 iconSrc="/assets/icons/chart.svg"
                 value={`${product.currency} ${formatNumber(
                   product.averagePrice
                 )}`}
-                borderColor="b6dbff"
               />
-
               <PriceInfoCard
                 title="Highest Price"
                 iconSrc="/assets/icons/arrow-up.svg"
                 value={`${product.currency} ${formatNumber(
                   product.highestPrice
                 )}`}
-                borderColor="b6dbff"
               />
               <PriceInfoCard
                 title="Lowest Price"
@@ -157,7 +155,6 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                 value={`${product.currency} ${formatNumber(
                   product.lowestPrice
                 )}`}
-                borderColor="beffc5"
               />
             </div>
           </div>
@@ -165,15 +162,18 @@ const ProductDetails = async ({ params: { id } }: Props) => {
           <Modal productId={id} />
         </div>
       </div>
+
       <div className="flex flex-col gap-16">
         <div className="flex flex-col gap-5">
           <h3 className="text-2xl text-secondary font-semibold">
             Product Description
           </h3>
+
           <div className="flex flex-col gap-4">
             {product?.description?.split("\n")}
           </div>
         </div>
+
         <button className="btn w-fit mx-auto flex items-center justify-center gap-3 min-w-[200px]">
           <Image
             src="/assets/icons/bag.svg"
@@ -181,6 +181,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
             width={22}
             height={22}
           />
+
           <Link href="/" className="text-base text-white">
             Buy Now
           </Link>
